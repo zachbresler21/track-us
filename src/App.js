@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from './Containers/Layout/Layout'
 import QRCodeScanner from './Containers/QRCodeScanner/QRCodeScanner'
+import PersonalInfoForm from './Containers/PersonalInfoForm/PersonalInfoForm'
 import { Switch, Route } from 'react-router-dom'
 const App = (props) => {
   return (
