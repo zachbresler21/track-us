@@ -11,10 +11,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from "react-router-dom";
 import thunk from 'redux-thunk';
 
-// import booksReducer from './store/reducers/books';
-// import authReducer from './store/reducers/auth';
-// import userProfileReducer from './store/reducers/userProfile';
-// import bookStoreReducer from './store/reducers/bookStore';
+import locationsReducer from './store/reducers/locations'
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -23,21 +20,18 @@ const composeEnhancers =
 
 
 const rootReducer = combineReducers({
-  // books: booksReducer,
-  // auth: authReducer,
-  // userProfile: userProfileReducer,
-  // bookStore: bookStoreReducer
+  locations: locationsReducer,
 });
 
 const appReducer = (state, action) => {
   // when a logout action is dispatched it will reset redux state
-  if (action.type === 'AUTH_LOGOUT_SUCCESS') {
-    // we keep a reference of the keys we want to maintain
-    // other keys will be passed as undefined and this will call
-    // reducers with an initial state
-    storage.removeItem('persist:root');
-    state = undefined;
-  }
+  // if (action.type === 'AUTH_LOGOUT_SUCCESS') {
+  //   // we keep a reference of the keys we want to maintain
+  //   // other keys will be passed as undefined and this will call
+  //   // reducers with an initial state
+  //   storage.removeItem('persist:root');
+  //   state = undefined;
+  // }
 
   return rootReducer(state, action);
 };
@@ -45,8 +39,7 @@ const appReducer = (state, action) => {
 const persistConfig = {
   key: 'root',
   storage,
-
-  whitelist: ['books', 'userProfile', 'auth', 'bookStore']
+  whitelist: ['locations']
 
 }
 

@@ -1,21 +1,20 @@
 import classes from './QRCodeScanner.module.css'
 import React, { useState, useEffect } from 'react'
 import QrReader from 'react-qr-reader'
-// import { connect } from 'react-redux';
-
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import * as actions from '../../store/actions/locations'
 
 const QRCodeScanner = (props) => {
     const [state, setState] = useState({
-        result: []
+        result: ""
     })
 
     const handleScan = data => {
         if (data) {
-            const dataArr = data.split('/')
-            // props.OnSearchTaxis(dataArr[1])
+            props.OnSearchLocations(data)
             setState({
-                result: dataArr
+                result: data
             })
         }
     }
@@ -27,19 +26,34 @@ const QRCodeScanner = (props) => {
     }, [])
     return (
         <div className={classes.Container}>
-            <h4>Scan the QR in/outside the taxi</h4>
-            <QrReader
-                delay={300}
-                onError={handleError}
-                onScan={handleScan}
-                style={{ width: '100%' }}
-            />
+            <h1>Scan to displayed QR Code</h1>
+            <h4>Scan the QR Code to select your current location.</h4>
+            <div className={classes.codeContainer}>
+                <QrReader
+                    delay={300}
+                    onError={handleError}
+                    onScan={handleScan}
+                    style={{ width: '100%' }}
+                />
+            </div>
             <h4>Align QR Code to scan</h4>
-            <p>{state.result[1]}</p>
+            <p>{state.result}</p>
             {/* <button>Rate</button> */}
-            {/* {props.redirect ? <Redirect to={"/home"} /> : null} */}
+            {props.redirect ? <Redirect to={`/location/${state.result}`} /> : null}
         </div>
     )
 }
+const mapStateToProps = state => {
+    return {
+        error: state.locations.error,
+        redirect: state.locations.redirect
+    };
+}
 
-export default QRCodeScanner
+const mapDispatchToProps = dispatch => {
+    return {
+        OnSearchLocations: (location_id) => dispatch(actions.searchLocations(location_id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QRCodeScanner)

@@ -2,19 +2,18 @@ import React from 'react'
 import Layout from './Containers/Layout/Layout'
 import QRCodeScanner from './Containers/QRCodeScanner/QRCodeScanner'
 import { Switch, Route } from 'react-router-dom'
+import WelcomeScreen from './Containers/WelcomeScreen/WelcomeScreen'
+// import LocationProfile from './Containers/LocationProfile/LocationProfile'
+import SearchLocations from './Containers/SearchLocations/SearchLocations'
+
 const App = (props) => {
   return (
     <Layout>
       <Switch>
-        {/* <Route path="/" exact component={Auth} />
-        <Route path="/entertaxiinfo" exact component={EnterTaxiInfo} />
-        <Route path="/entertaxiinfo/qrcodescanner" exact component={QRCodeScanner} />
-        <Route path="/entertaxiinfo/webcamcapture" exact component={WebcamCapture} />
-        <Route path="/home" exact component={Home} />
-        <Route path="/rate" exact component={RateTaxi} />
-        <Route path="/report" exact component={ReportIncident} />
-        <Route path="/taxiprofile" exact component={TaxiProfile} />
-        <Route path="/emergencynumbers" exact component={EmergencyNumbers} /> */}
+        <Route path="/" exact component={WelcomeScreen} />
+        <Route path="/qrcodescanner" exact component={QRCodeScanner} />
+        {/* <Route path="/location/:id" exact component={LocationProfile} /> */}
+        <Route path="/searchlocations" exact component={SearchLocations} />
       </Switch>
     </Layout>
   );

@@ -1,0 +1,23 @@
+.Container {
+    padding: 10px 10px;
+    height: 90vh;
+    margin-top: 20%;
+}
+
+.Container img {
+    position: absolute;
+    height: 140px;
+    top: 28px;
+    right: 70px;
+    opacity: 0.4;
+}
+
+.Content {
+    width: 80vw;
+}
+
+.Content h1 {
+    font-size: 43px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
