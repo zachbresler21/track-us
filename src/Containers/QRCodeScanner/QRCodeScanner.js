@@ -52,7 +52,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        OnSearchLocations: (location_id) => dispatch(actions.searchLocations(location_id))
+        OnSearchLocations: (location_id) => dispatch(actions.searchLocationsById(location_id))
     }
 }
 

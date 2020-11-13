@@ -10,11 +10,11 @@ const initialState = {
     showFeedbackModal: false,
     showErrorModal: false
 };
-const searchLocationsStart = (state, action) => {
+const searchLocationsByIdStart = (state, action) => {
     return updateObject(state, { error: null, loading: true });
 };
 
-const searchLocationsSuccess = (state, action) => {
+const searchLocationsByIdSuccess = (state, action) => {
     return updateObject(state, {
         error: action.error,
         location_info: action.location_info,
@@ -23,7 +23,7 @@ const searchLocationsSuccess = (state, action) => {
     });
 };
 
-const searchLocationsFail = (state, action) => {
+const searchLocationsByIdFail = (state, action) => {
     return updateObject(state, {
         error: action.error,
         loading: false,
@@ -34,9 +34,9 @@ const searchLocationsFail = (state, action) => {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SEARCH_LOCATIONS_START: return searchLocationsStart(state, action);
-        case actionTypes.SEARCH_LOCATIONS_SUCCESS: return searchLocationsSuccess(state, action);
-        case actionTypes.SEARCH_LOCATIONS_FAIL: return searchLocationsFail(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_START: return searchLocationsByIdStart(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS: return searchLocationsByIdSuccess(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_FAIL: return searchLocationsByIdFail(state, action);
 
 
         default:
