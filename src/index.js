@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { persistStore, persistReducer } from 'redux-persist';
@@ -24,15 +23,6 @@ const rootReducer = combineReducers({
 });
 
 const appReducer = (state, action) => {
-  // when a logout action is dispatched it will reset redux state
-  // if (action.type === 'AUTH_LOGOUT_SUCCESS') {
-  //   // we keep a reference of the keys we want to maintain
-  //   // other keys will be passed as undefined and this will call
-  //   // reducers with an initial state
-  //   storage.removeItem('persist:root');
-  //   state = undefined;
-  // }
-
   return rootReducer(state, action);
 };
 
@@ -60,8 +50,3 @@ const app = (
 );
 
 ReactDOM.render(app, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
