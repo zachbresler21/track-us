@@ -3,7 +3,6 @@ import classes from './Header.module.css'
 // import backarrow from '../../assets/arrow_back-white-48dp.svg'
 import { useHistory, useLocation } from 'react-router-dom'
 // import { connect } from 'react-redux';
-import phone from '../../assets/phone.svg'
 
 const Header = (props) => {
     return (
