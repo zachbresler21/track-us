@@ -2,11 +2,13 @@ import React from 'react'
 import Layout from './Containers/Layout/Layout'
 import QRCodeScanner from './Containers/QRCodeScanner/QRCodeScanner'
 import PersonalInfoForm from './Containers/PersonalInfoForm/PersonalInfoForm'
+import ScreeningForm from './Containers/ScreeningForm/ScreeningForm'
 import { Switch, Route } from 'react-router-dom'
 const App = (props) => {
   return (
     <Layout>
       <Switch>
+       <Route path="/" exact component={ScreeningForm} />
         {/* <Route path="/" exact component={Auth} />
         <Route path="/entertaxiinfo" exact component={EnterTaxiInfo} />
         <Route path="/entertaxiinfo/qrcodescanner" exact component={QRCodeScanner} />

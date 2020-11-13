@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { connect } from 'react-redux';
 import classes from './PersonalInfoForm.module.css'
+import { updateObject } from '../../shared/utility';
 
 const PersonalInfoForm = (props) => {
 
@@ -20,13 +21,6 @@ const PersonalInfoForm = (props) => {
         formRef.current = val;
         _setFormData(val);
     }
-
-    const updateObject = (oldObject, updatedProperties) => {
-        return {
-            ...oldObject,
-            ...updatedProperties
-        };
-    };
 
     const onChangeHandler = (e) => {
         const value = e.target.value

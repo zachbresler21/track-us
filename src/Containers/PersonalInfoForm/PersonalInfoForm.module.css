@@ -20,8 +20,10 @@
     font-size: 40px;
 }
 
-.Subtitle {
-    color: grey;
+.SectionTitle p {
+    color:#A2A6BB;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .FormContainer {
