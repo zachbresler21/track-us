@@ -1,0 +1,14 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;
+}
+
+.Container h4{
+    color: #fff;
+}
+
+.Container p{
+    color: #fff;
+}
