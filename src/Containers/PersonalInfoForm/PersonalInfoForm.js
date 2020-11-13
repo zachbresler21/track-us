@@ -66,13 +66,10 @@ const PersonalInfoForm = (props) => {
             </form>
 
             <div className ={classes.ButtonContainer}>
-                <button> Next </button>
+                <button onClick ={() => {console.log(formData)}}> Next </button>
             </div>
         </div>
-
     )
 }
-
-
 
 export default PersonalInfoForm

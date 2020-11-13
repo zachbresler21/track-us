@@ -51,7 +51,7 @@ const ScreeningForm = (props) => {
     }
 
 
-    let symptoms = ["Accident", "Unroadworthy", "Overcrowding", "Reckless Driving", "Speeding", "Other"].map(symptom =>
+    let symptoms = ["Sore throat", "Cough", "Sweating", "Difficulty breathing", "Loss of senses", "Chills"].map(symptom =>
         <div key = {symptom} className={classes.SymptomContainer} onClick={() => selectSymptomHandler(symptom)}>
             <div className={selectedSymptoms.includes(symptom) ? classes.SelectedSymptom : classes.Symptom}>
                 <div className={classes.ImageContainer}>
