@@ -1,0 +1,75 @@
+.Container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30px;
+}
+
+.SectionTitle {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.SectionTitle h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #25519A;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.SectionTitle p {
+    color:#A2A6BB;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.InputItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.InputItem label {
+    color: #25519A;
+    font-size: large;
+    padding-bottom: 15px;
+}
+
+.InputItem input {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #bbc3e9;
+    background-color: #c9cfee;
+    padding: 5px 12px;
+}
+
+.ButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.ButtonContainer button {
+    width: 100px;
+    height: 30px;
+    background-color: #25519A;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 15px;
+    border-color: #25519A;
+    box-shadow: none;
+    border-style: none;
+    outline: none;
+}

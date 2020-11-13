@@ -1,0 +1,182 @@
+.Container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30px;
+}
+
+.SectionTitle {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.SectionTitle h2 {
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #25519A;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.SectionTitle p {
+    color:#A2A6BB;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.InputItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.InputItem label {
+    color: #25519A;
+    font-size: medium;
+    padding-bottom: 15px;
+}
+
+.InputItem input {
+    width: 30%;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #bbc3e9;
+    padding: 5px 12px;
+    text-align: center;
+    font-size: 20px;
+    color: #3F79FB;
+}
+
+.SelectItem {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.SelectItem label {
+    color: #25519A;
+    font-size: medium;
+}
+
+.OptionsContainer {
+    display: flex;
+    align-items: center;
+    color: #25519A;
+    padding-left: 10px;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.OptionsContainer input{
+    margin-right: 15px;
+}
+
+.OptionItem {
+    display: flex;
+    align-items: center;
+    color: #25519A;
+    margin-right: 20px;
+}
+
+.SymptomSection
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.SymptomSection label {
+    color: #25519A;
+    font-size: large;
+}
+
+.SymptomsList{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* max-width: 65rem; */
+    margin-top: 15px;
+    margin-bottom: 15px;
+    justify-content: space-around;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.SymptomContainer {
+    display: flex;
+    width: 100%;
+}
+
+.ImageContainer {
+    height: 20px;
+    width: 100%;
+    position: absolute;
+    right: 0px;
+}
+
+.ImageContainer img {
+    height: 100%;
+    width: 100%;
+    margin-left: 100px;
+}
+
+.Symptom {
+    /* max-width: 40%; */
+    width: 90%;
+    border: 2px solid #A2A6BB;
+    border-radius: 10px;
+    padding: 10px 10px;
+    background-color: #191d21;
+    background-color:white;
+    color: #25519A;
+    text-align: left;
+    margin-right: 10px;
+    margin-top: 15px;
+    transition: all 0.12s linear;
+    /* justify-content: space-between; */
+}
+
+.SelectedSymptom{
+    /* max-width: 40%; */
+    width: 90%;
+    border: 3px solid #25519A;
+    border-radius: 10px;
+    padding: 10px 10px;
+    background-color: #191d21;
+    background-color:white;
+    color: #25519A;
+    text-align: left;
+    margin-right: 10px;
+    margin-top: 15px;
+    transition: all 0.12s linear;
+    /* justify-content: space-between; */
+}
+
+.ButtonContainer {
+    display: flex;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.ButtonContainer button {
+    width: 150px;
+    height: 50px;
+    background-color: #3F79FB;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    border: 3px solid #25519A;
+    box-shadow: none;
+}
