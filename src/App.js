@@ -14,7 +14,8 @@ const App = (props) => {
       <Switch>
         <Route path="/" exact component={WelcomeScreen} />
         <Route path="/qrcodescanner" exact component={QRCodeScanner} />
-        <Route path="/location/:id" exact component={LocationProfile} />
+        <Route path="/personalinfo" exact component={PersonalInfoForm} />
+        <Route path="/screeninginfo" exact component={ScreeningForm} />
         <Route path="/searchlocations" exact component={SearchLocations} />
       </Switch>
     </Layout>
