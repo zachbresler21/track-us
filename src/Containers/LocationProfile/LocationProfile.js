@@ -7,7 +7,7 @@ const LocationProfile = (props) => {
     console.log(props.location_info)
     return (
         <div className={classes.Container}>
-            {props.location_info}
+            
         </div>
     )
 }
