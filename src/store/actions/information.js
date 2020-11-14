@@ -4,6 +4,11 @@ import firebase from '../../firebase/index'
 import 'firebase/database'
 import 'firebase/auth'
 
+export const wipeState = () => {
+    return {
+        type: actionTypes.WIPE_INFORMATION_STATE
+    };
+};
 
 export const savePersonalInfoSuccess = (personalInfo) => {
     return {

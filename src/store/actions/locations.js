@@ -80,7 +80,6 @@ export const searchLocationsByTerm = (term) => {
              .endAt(term+"\uf8ff")
              .once("value")
              .then(snap => snap.val()).then(locations => {
-                console.log(locations)
                 ref.once("value").then((snap => {
                     dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
                 }))

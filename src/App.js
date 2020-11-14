@@ -13,6 +13,7 @@ import ReportLocation from './Containers/Report/Report';
 
 import { connect } from 'react-redux';
 import * as actions from './store/actions/locations'
+import * as infoActions from './store/actions/information'
 
 
 const App = (props) => {
@@ -36,6 +37,7 @@ const App = (props) => {
 const mapDispatchToProps = dispatch => {
   return {
     OnWipeState: () => dispatch(actions.wipeState()),
+    OnWipeInfoState: () => dispatch(infoActions.wipeState())
   }
 }
 

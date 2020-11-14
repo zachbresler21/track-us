@@ -5,7 +5,7 @@ import { updateObject } from '../../shared/utility';
 import blankcheck from '../../assets/blank-check-box.svg'
 import checkbox from '../../assets/check-box.svg'
 import * as actions from '../../store/actions/information'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 
 
 const ScreeningForm = (props) => {
@@ -133,11 +133,11 @@ const ScreeningForm = (props) => {
             </form>
 
             <div className={classes.ButtonContainer}>
-                <NavLink to="/location">
-                    <button onClick={onSubmitHanlder}> Submit </button>
-                </NavLink>
-
+                <button onClick={onSubmitHanlder}> Submit </button>
             </div>
+
+            {props.redirect ? <Redirect to={`/location`} /> : null}
+
         </div>
     )
 }
@@ -146,7 +146,8 @@ const ScreeningForm = (props) => {
 const mapStateToProps = state => {
     return {
         locationId: state.locations.location_id,
-        personalInfo: state.information.personal_info
+        personalInfo: state.information.personal_info,
+        redirect: state.information.redirect
     };
 }
 
