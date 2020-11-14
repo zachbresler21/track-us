@@ -61,30 +61,30 @@ const LocationProfile = (props) => {
                     </div>
 
                 </div>
-                <div>
+                {/* <div>
                     <div style={containerStyles}>
                         <div style={fillerStyles}>
                             <span style={labelStyles}>{`${props.location_info.num_people + " / " + props.location_info.capacity}`}</span>
                         </div>
-                    </div>
+                    </div> */}
                     {/* <span>{props.location_info.num_people+" / "+props.location_info.capacity}</span> */}
-                </div>
+                {/* </div> */}
 
             </div>
             <div className={classes.ButtonsGroup}>
                 <div className={classes.LeftContainer}>
                     <button className={classes.RateButton}>Rate</button>
                     <button className={classes.ReportButton}>Report</button>
-                    <button className={classes.ViewButton}>View</button>
+                    {/* <button className={classes.ViewButton}>View</button> */}
                 </div>
                 <div className={classes.RightContainer}>
                     <div className={classes.TotalBlock}>
-                        <span className={classes.ValueTot}>239</span>
-                        <span className={classes.TextTot}>Total number of people per day</span>
+                        <span className={classes.ValueTot}>{props.location_info.num_people}</span>
+                        <span className={classes.TextTot}>Number of people currently</span>
                     </div>
-                    <NavLink to ="/qrcodescanner">
+                    {/* <NavLink to ="/qrcodescanner">
                         <button className={classes.ScanQR}>Scan QR Code</button>
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
         </div>
