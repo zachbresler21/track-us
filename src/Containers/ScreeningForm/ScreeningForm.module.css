@@ -56,6 +56,12 @@
     text-align: center;
     font-size: 20px;
     color: #3F79FB;
+    outline: none;
+    transition: all 0.2s linear;
+}
+.InputItem input:focus{
+    border: 1px solid #8d9dee;
+    transition: all 0.2s linear;
 }
 
 .SelectItem {
@@ -172,7 +178,7 @@
     justify-content: center;
 }
 
-.ButtonContainer button {
+.ButtonContainer button{
     width: 150px;
     height: 50px;
     background-color: #3F79FB;
@@ -181,4 +187,9 @@
     font-size: 15px;
     border: 3px solid #25519A;
     box-shadow: none;
+}
+
+.ButtonContainer a{
+    width: 150px;
+    height: 50px;
 }

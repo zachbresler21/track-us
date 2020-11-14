@@ -12,8 +12,8 @@ const Header = (props) => {
             props.OnWipeState()
             history.push('/')
         }
-        else if (pathname === "/rate" || pathname === "/report") {
-            history.back()
+        else if (pathname === "/ratelocation" || pathname === "/reportlocation") {
+            history.push('/location')
         }
         else if(pathname === "/screeninginfo"){
             history.push('/personalinfo')

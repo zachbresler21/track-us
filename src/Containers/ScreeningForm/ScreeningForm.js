@@ -5,6 +5,7 @@ import { updateObject } from '../../shared/utility';
 import blankcheck from '../../assets/blank-check-box.svg'
 import checkbox from '../../assets/check-box.svg'
 import * as actions from '../../store/actions/information'
+import { NavLink } from 'react-router-dom';
 
 
 const ScreeningForm = (props) => {
@@ -28,21 +29,19 @@ const ScreeningForm = (props) => {
     const onChangeHandler = (e, answer) => {
         const value = e.target.value
         let updatedData = formData
-        if(e.target.name === "travelled")
-        {
+        if (e.target.name === "travelled") {
             updatedData = updateObject({
                 ...formData,
                 [e.target.name]: answer
             })
         }
-        else if (e.target.name === "contact")
-        {
+        else if (e.target.name === "contact") {
             updatedData = updateObject({
                 ...formData,
                 [e.target.name]: answer
             })
         }
-        else{
+        else {
             updatedData = updateObject({
                 ...formData,
                 [e.target.name]: value
@@ -70,19 +69,18 @@ const ScreeningForm = (props) => {
 
 
     let symptoms = ["Sore throat", "Cough", "Sweating", "Difficulty breathing", "Loss of senses", "Chills"].map(symptom =>
-        <div key = {symptom} className={classes.SymptomContainer} onClick={() => selectSymptomHandler(symptom)}>
+        <div key={symptom} className={classes.SymptomContainer} onClick={() => selectSymptomHandler(symptom)}>
             <div className={selectedSymptoms.includes(symptom) ? classes.SelectedSymptom : classes.Symptom}>
                 <div className={classes.ImageContainer}>
-                    {selectedSymptoms.includes(symptom) ? <img src = {checkbox}/> : <img src = {blankcheck}/>}
+                    {selectedSymptoms.includes(symptom) ? <img src={checkbox} /> : <img src={blankcheck} />}
                 </div>
                 {symptom}
             </div>
         </div>)
 
 
-    const onSubmitHanlder = () =>
-    {
-        props.OnSubmitInformation(props.personalInfo, {...formData, selectedSymptoms}, props.locationId)
+    const onSubmitHanlder = () => {
+        props.OnSubmitInformation(props.personalInfo, { ...formData, selectedSymptoms }, props.locationId)
     }
 
     return (
@@ -93,20 +91,20 @@ const ScreeningForm = (props) => {
             </div>
             <form className={classes.FormContainer}>
 
-            <div className={classes.InputItem}>
-                    <label>Temperature</label>
-                    <input type ="number" name="temperature" onChange={(e) => onChangeHandler(e)} />
+                <div className={classes.InputItem}>
+                    <label>Temperature C&#176;</label>
+                    <input type="number" name="temperature" onChange={(e) => onChangeHandler(e)} />
                 </div>
 
                 <div className={classes.SelectItem}>
                     <label>Have you travelled in the past 14 days?</label>
                     <div className={classes.OptionsContainer}>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e, true)} />
+                            <input type="radio" name="travelled" onChange={(e) => onChangeHandler(e, true)} />
                             <p> Yes </p>
                         </div>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e, false)} />
+                            <input type="radio" name="travelled" onChange={(e) => onChangeHandler(e, false)} />
                             <p> No </p>
                         </div>
                     </div>
@@ -116,11 +114,11 @@ const ScreeningForm = (props) => {
                     <label>Have you been in contact with someone who has tested positive for COVID in the past 14 days?</label>
                     <div className={classes.OptionsContainer}>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e, true)} />
+                            <input type="radio" name="contact" onChange={(e) => onChangeHandler(e, true)} />
                             <p> Yes </p>
                         </div>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e, false)} />
+                            <input type="radio" name="contact" onChange={(e) => onChangeHandler(e, false)} />
                             <p> No </p>
                         </div>
                     </div>
@@ -130,12 +128,15 @@ const ScreeningForm = (props) => {
                     <label>Select any symptoms you are experiencing</label>
                     <div className={classes.SymptomsList}>
                         {symptoms}
-                     </div>
+                    </div>
                 </div>
             </form>
 
-            <div className ={classes.ButtonContainer}>
-                <button onClick={() => {onSubmitHanlder()}}> Submit </button>
+            <div className={classes.ButtonContainer}>
+                <NavLink to="/location">
+                    <button onClick={onSubmitHanlder}> Submit </button>
+                </NavLink>
+
             </div>
         </div>
     )

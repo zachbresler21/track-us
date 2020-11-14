@@ -67,14 +67,19 @@ const LocationProfile = (props) => {
                             <span style={labelStyles}>{`${props.location_info.num_people + " / " + props.location_info.capacity}`}</span>
                         </div>
                     </div> */}
-                    {/* <span>{props.location_info.num_people+" / "+props.location_info.capacity}</span> */}
+                {/* <span>{props.location_info.num_people+" / "+props.location_info.capacity}</span> */}
                 {/* </div> */}
 
             </div>
             <div className={classes.ButtonsGroup}>
                 <div className={classes.LeftContainer}>
-                    <button className={classes.RateButton}>Rate</button>
-                    <button className={classes.ReportButton}>Report</button>
+                    <NavLink to="/ratelocation">
+                        <button className={classes.RateButton}>Rate</button>
+                    </NavLink>
+                    <NavLink to="/reportlocation">
+                        <button className={classes.ReportButton}>Report</button>
+                    </NavLink>
+
                     {/* <button className={classes.ViewButton}>View</button> */}
                 </div>
                 <div className={classes.RightContainer}>
