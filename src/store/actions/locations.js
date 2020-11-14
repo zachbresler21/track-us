@@ -115,16 +115,16 @@ export const rateLocationFail = () => {
     };
 }
 
-export const rateLocation = (location_id) => {
-    return dispath => {
-        dispatch(rateLocationStart())
-        firebase
-            .database()
-            .ref('locations')
-            .orderByChild()
-            .equalTo(location_id)
-            .transaction((location) => {
-                console.log(location)
-            })
-    }
-}
+// export const rateLocation = (location_id) => {
+//     return dispath => {
+//         dispatch(rateLocationStart())
+//         firebase
+//             .database()
+//             .ref('locations')
+//             .orderByChild()
+//             .equalTo(location_id)
+//             .transaction((location) => {
+//                 console.log(location)
+//             })
+//     }
+// }
