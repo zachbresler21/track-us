@@ -95,3 +95,36 @@ export const searchLocationsByTerm = (term) => {
         }
     }
 };
+
+
+export const rateLocationStart = () => {
+    return {
+        type: actionTypes.RATE_LOCATION_START
+    };
+};
+
+export const rateLocationSuccess = () => {
+    return {
+        type: actionTypes.RATE_LOCATION_SUCCESS
+    };
+};
+
+export const rateLocationFail = () => {
+    return {
+        type: actionTypes.RATE_LOCATION_FAIL
+    };
+}
+
+export const rateLocation = (location_id) => {
+    return dispath => {
+        dispatch(rateLocationStart())
+        firebase
+            .database()
+            .ref('locations')
+            .orderByChild()
+            .equalTo(location_id)
+            .transaction((location) => {
+                console.log(location)
+            })
+    }
+}
