@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/locations'
 import LocationItem from './LocationItem/LocationItem'
+import { Redirect } from 'react-router-dom'
 
 const SearchLocations = (props) => {
 
@@ -52,6 +53,8 @@ const SearchLocations = (props) => {
 
     return (
         <div className={classes.Container}>
+            {props.redirect ? <Redirect to={`/location`} /> : null}
+
             <input type="text" placeholder="Search Locations" onChange={inputChangeHandler} />
             <div className={classes.Results}>
                 <h2>Select a Location</h2>
