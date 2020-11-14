@@ -115,16 +115,33 @@ export const rateLocationFail = () => {
     };
 }
 
-// export const rateLocation = (location_id) => {
-//     return dispath => {
-//         dispatch(rateLocationStart())
-//         firebase
-//             .database()
-//             .ref('locations')
-//             .orderByChild()
-//             .equalTo(location_id)
-//             .transaction((location) => {
-//                 console.log(location)
-//             })
-//     }
-// }
+export const rateLocation = (rating, location_id, avg_rating) => {
+    return dispatch => {
+        dispatch(rateLocationStart());
+        axios.post(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/ratings.json`, JSON.stringify(rating))
+            .then(response => {
+                dispatch(rateLocationSuccess(response.data));
+                dispatch(updateTotalRatings(location_id, avg_rating, rating.value))
+            })
+            .catch(error => {
+                dispatch(rateLocationFail(error));
+            });
+    };
+};
+
+const updateTotalRatings = (location_id, avg_rating, rating) => {
+    return dispatch => {
+        axios.get(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/total_ratings.json`)
+            .then(response => {
+                axios.put(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/total_ratings.json`, response.data + 1)
+                    .then(response => {
+
+                    })
+                    .catch(error => {
+                    });
+                axios.put(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/avg_rating.json`, ((avg_rating * response.data + rating) / (response.data + 1)).toFixed(1))
+            })
+            .catch(error => {
+            });
+    };
+}

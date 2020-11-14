@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom'
 import WelcomeScreen from './Containers/WelcomeScreen/WelcomeScreen'
 import LocationProfile from './Containers/LocationProfile/LocationProfile'
 import SearchLocations from './Containers/SearchLocations/SearchLocations'
+import RateLocation from './Containers/RateLocation/RateLocation'
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
         <Route path="/screeninginfo" exact component={ScreeningForm} />
         <Route path="/searchlocations" exact component={SearchLocations} />
         <Route path="/location/:id" exact component={LocationProfile} />
+        <Route path="/ratelocation" exact component={RateLocation} />
       </Switch>
     </Layout>
   );
