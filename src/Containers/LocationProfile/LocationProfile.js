@@ -52,7 +52,7 @@ const LocationProfile = (props) => {
                 </div>
 
                 <div className={classes.Title}>
-                    <h1>Makro</h1>
+                    <h1>{props.location_info.name}</h1>
                     <div className={classes.Location}>
                         <img src={location} alt="location icon" />
                         <h5>Montague Gardens</h5>
