@@ -26,7 +26,7 @@ const QRCodeScanner = (props) => {
     }, [])
     return (
         <div className={classes.Container}>
-            <h1>Scan to displayed QR Code</h1>
+            <h1>Scan the displayed QR Code</h1>
             <h4>Scan the QR Code to select your current location.</h4>
             <div className={classes.codeContainer}>
                 <QrReader
