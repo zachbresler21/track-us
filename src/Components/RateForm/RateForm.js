@@ -56,7 +56,7 @@ const RateForm = (props) => {
                     <label>Additional Information</label>
                     <textarea onChange={inputHandler} placeholder={"Add any additional information about this rating"} />
                     <div className={classes.ButtonGroup}>
-                        <button className={classes.SecondaryButton} onClick={() => history.push("/home")}>Cancel</button>
+                        <button className={classes.SecondaryButton} onClick={() => history.push("/")}>Cancel</button>
                         <button onClick={onClickHandler} className={classes.PrimaryButton}>Rate</button>
                     </div>
                 </form>

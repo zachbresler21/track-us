@@ -52,7 +52,7 @@
 
 .SegmentedComponent label 
 {
-    color: #25519A;
+    color: black;
     padding-top: 5px;
 }
 
@@ -77,7 +77,7 @@
 .SegmentedComponentT input
 {
     background-color: white;
-    color: #3F79FB;
+    color: black;
 }
 
 
@@ -96,7 +96,7 @@
 .IncidentType{
     max-width: 40%;
     height: 20px;
-    border: 2px solid #191d21;
+    border: 1px solid #ccc;
     border-radius: 20px;
     padding: 10px 10px;
     align-items: center;
@@ -113,15 +113,16 @@
 .SelectedIncidentType{
     max-width: 40%;
     height: 20px;
-    border: 2px solid #191d21;
+    border: 1px solid rgb(78, 92, 105);
     border-radius: 20px;
     padding: 10px 10px;
     align-items: center;
-    background-color: #3F79FB;
+    background-color: #25519a;
     color: white;
     text-align: center;
     margin-right: 10px;
     margin-top: 15px;
+    font-weight: 500;
     transition: all 0.12s linear;
 }
 
@@ -143,9 +144,18 @@
     font-size: 15px;
     outline: none;
     background-color: white;
-    color: #25519A;
+    color: #000;
     border: 2px solid #767676;
     box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid #bbc3e998;
+    background-color: #c9cfee86;
+    padding: 20px 22px;
+}
+
+.Additional textarea:focus {
+    border: 1px solid #25519a;
+    transition: all linear 0.12s;
 }
 
 .ButtonGroup {
@@ -190,7 +200,7 @@
 .Input {
     border-radius: 5px;
     height: 32px;
-    color: white;
+    color: black;
     background-color: #191d21;
     font-size: 15px;
     border-style: solid;
@@ -205,32 +215,33 @@
 .InputT {
     border-radius: 5px;
     height: 32px;
-    color: white;
+    color: black;
     background-color: #191d21;
     font-size: 15px;
     border-style: solid;
     width: 95%;
-    border: 2px solid #767676;
+    border: 1px solid #ccc;
     outline: none;
     /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195)); */
     padding: 15px 10px;
     box-sizing: border-box;
+    transition: all 0.2s linear ;
 }
 
 .Input:focus {
-    border: 2px solid #BA8D5F;
-    transition: all linear 0.12s;
+    border: 1px solid #25519a;
+    transition: all 0.2s linear ;
 }
 
 .InputT:focus {
-    border: 2px solid #BA8D5F;
-    transition: all linear 0.12s;
+    border: 1px solid #25519a;
+    transition: all 0.2s linear ;
 }
-
+/* 
 .TextAreaInput:focus {
     border: 2px solid #BA8D5F;
     transition: all linear 0.12s;
-}
+} */
 
 .SuggestedLocation_container{
     list-style: none;

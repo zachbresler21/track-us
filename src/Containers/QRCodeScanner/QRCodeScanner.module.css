@@ -23,3 +23,7 @@
 .codeContainer section{
     border-radius: 20px;
 }
+
+.RedirectingMessage{
+    margin-top: -10px;
+}

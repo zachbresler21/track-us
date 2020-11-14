@@ -37,7 +37,7 @@ const QRCodeScanner = (props) => {
                 />
             </div>
             <h4>Align QR Code to scan</h4>
-            <p>{state.result}</p>
+            {state.result && <p className={classes.RedirectingMessage}>Redirecting...</p>}
             {/* <button>Rate</button> */}
             {props.redirect ? <Redirect to={`/personalinfo`} /> : null}
         </div>

@@ -99,7 +99,7 @@
 {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     align-items: center;
 }
 
@@ -158,7 +158,7 @@
 .SelectedSymptom{
     /* max-width: 40%; */
     width: 90%;
-    border: 3px solid #25519A;
+    border: 2px solid #25519A;
     border-radius: 10px;
     padding: 10px 10px;
     background-color:white;
@@ -167,6 +167,7 @@
     margin-right: 10px;
     margin-top: 15px;
     transition: all 0.12s linear;
+    /* font-weight: 600; */
     /* justify-content: space-between; */
 }
 
@@ -180,16 +181,16 @@
 
 .ButtonContainer button{
     width: 150px;
-    height: 50px;
-    background-color: #3F79FB;
+    height: 40px;
+    background-color: #25519A;
     color: white;
     border-radius: 10px;
     font-size: 15px;
-    border: 3px solid #25519A;
+    border: none;
     box-shadow: none;
 }
 
 .ButtonContainer a{
     width: 150px;
-    height: 50px;
+    height: 40px;
 }

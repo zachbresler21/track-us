@@ -136,7 +136,6 @@ const ScreeningForm = (props) => {
                 <NavLink to="/location">
                     <button onClick={onSubmitHanlder}> Submit </button>
                 </NavLink>
-
             </div>
         </div>
     )

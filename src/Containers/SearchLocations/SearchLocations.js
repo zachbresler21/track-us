@@ -57,9 +57,6 @@ const SearchLocations = (props) => {
             <div className={classes.Navigation} >
                 <img src={navigation} alt="navigation image" />
             </div>
-            {/* <div>
-
-            </div> */}
             <div className={classes.Results}>
                 <h2>Select a Location</h2>
                 <div className={classes.ScrollContainer}>
