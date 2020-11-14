@@ -31,12 +31,31 @@ const SearchLocations = (props) => {
         return delayedSearch.cancel;
     }, [searchRef.current, delayedSearch]);
 
+    let result = null;
+
+    if (props.locations === undefined || props.locations === null || props.locations.length === 0 || !(props.locations instanceof Array)) {
+        result = null
+    } else {
+        result = props.locations.map(location =>
+            (<LocationItem
+                key={location.key}
+                rating={location.avg_rating}
+                name={location.name}
+                location={location.location}
+                image={location.image}
+            />
+            )
+        )
+    }
+
     return (
         <div className={classes.Container}>
             <input type="text" placeholder="Search Locations" onChange={inputChangeHandler} />
             <div className={classes.Results}>
                 <h2>Select a Location</h2>
                 <div className={classes.ScrollContainer}>
+                    {result}
+                    {/* <LocationItem />
                     <LocationItem />
                     <LocationItem />
                     <LocationItem />
@@ -54,8 +73,7 @@ const SearchLocations = (props) => {
                     <LocationItem />
                     <LocationItem />
                     <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
+                    <LocationItem /> */}
                 </div>
             </div>
         </div>
@@ -64,7 +82,8 @@ const SearchLocations = (props) => {
 const mapStateToProps = state => {
     return {
         error: state.locations.error,
-        redirect: state.locations.redirect
+        redirect: state.locations.redirect,
+        locations: state.locations.search_locations
     };
 }
 

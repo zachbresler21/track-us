@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react'
 import { connect } from 'react-redux';
 import classes from './PersonalInfoForm.module.css'
 import { updateObject } from '../../shared/utility';
+import * as actions from '../../store/actions/information'
+import { Redirect , useHistory} from 'react-router-dom';
 
 const PersonalInfoForm = (props) => {
 
@@ -30,6 +32,14 @@ const PersonalInfoForm = (props) => {
             [e.target.name]: value
         })
         setFormData(updatedData)
+    }
+
+    let redirect = null
+    let history = useHistory()
+    const onNextHandler = () =>
+    {
+        props.OnSaveData(formData)
+        history.push("/screeninginfo")
     }
 
     return (
@@ -66,10 +76,16 @@ const PersonalInfoForm = (props) => {
             </form>
 
             <div className ={classes.ButtonContainer}>
-                <button onClick ={() => {console.log(formData)}}> Next </button>
+                <button onClick ={() => {onNextHandler()}}> Next </button>
             </div>
         </div>
     )
 }
 
-export default PersonalInfoForm
+const mapDispatchToProps = dispatch => {
+    return {
+        OnSaveData: (personalInfo) => dispatch(actions.savePersonalInfo(personalInfo)),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PersonalInfoForm)
