@@ -66,16 +66,30 @@ export const searchLocationsByTerm = (term) => {
     return dispatch => {
         dispatch(searchLocationsByTermStart());
         try {
-            ref.startAt(termLowerCase).endAt(termLowerCase + "a").once('value')
-                .then(snap => snap.val()).then(locations => {
-                    console.log(locations)
-                    ref.once("value").then((snap => {
-                        dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
-                    }))
-                })
-                .catch(error => {
-                    dispatch(searchLocationsByTermFail(error))
-                })
+            // ref.orderByChild("name").equalTo(term).on("child_added", function (snapshot) {
+            //     console.log(snapshot.key);
+            // });
+            ref.orderByChild('name')
+             .startAt(term)
+             .endAt(term+"\uf8ff")
+             .once("value")
+             .then(snap => snap.val()).then(locations => {
+                console.log(locations)
+                ref.once("value").then((snap => {
+                    dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
+                }))
+            })
+
+            // ref.startAt(termLowerCase).endAt(termLowerCase + "a").once('value')
+            //     .then(snap => snap.val()).then(locations => {
+            //         console.log(locations)
+            //         ref.once("value").then((snap => {
+            //             dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
+            //         }))
+            //     })
+            //     .catch(error => {
+            //         dispatch(searchLocationsByTermFail(error))
+            //     })
         } catch (error) {
             dispatch(searchLocationsByTermFail(error))
         }
