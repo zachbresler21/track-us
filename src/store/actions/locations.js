@@ -4,6 +4,12 @@ import firebase from '../../firebase/index'
 import 'firebase/database'
 import 'firebase/auth'
 
+export const wipeState = () => {
+    return {
+        type: actionTypes.WIPE_STATE
+    };
+};
+
 export const searchLocationsByIdStart = () => {
     return {
         type: actionTypes.SEARCH_LOCATIONS_BY_ID_START
