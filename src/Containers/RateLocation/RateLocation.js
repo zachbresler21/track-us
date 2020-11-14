@@ -26,7 +26,7 @@ const RateLocation = (props) => {
 const mapStateToProps = state => {
     return {
         location_info: state.locations.location_info,
-        showFeedbackModal: state.locations.showFeedbackModal,
+        showFeedbackModal: state.locations.showRateFeedback,
         location_id: state.locations.location_id
     };
 }
@@ -34,7 +34,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         OnRateLocation: (rating, location_id, avg_rating) => dispatch(actions.rateLocation(rating, location_id, avg_rating)),
-        // OnSetFeedbackModal: (val) => dispatch(actions.setFeedbackModalState(val))
+        OnSetFeedbackModal: (val) => dispatch(actions.setRateFeedbackModalState(val))
     }
 }
 

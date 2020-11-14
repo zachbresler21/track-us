@@ -10,6 +10,22 @@ export const wipeState = () => {
     };
 };
 
+export const setRateFeedbackModalState = (val) => {
+    return {
+        type: actionTypes.SET_RATE_FEEDBACK_MODAL_STATE,
+        val: val
+    };
+};
+
+
+export const setReportFeedbackModalState = (val) => {
+    return {
+        type: actionTypes.SET_REPORT_FEEDBACK_MODAL_STATE,
+        val: val
+    };
+};
+
+
 export const searchLocationsByIdStart = () => {
     return {
         type: actionTypes.SEARCH_LOCATIONS_BY_ID_START

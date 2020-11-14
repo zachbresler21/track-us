@@ -7,9 +7,19 @@ const initialState = {
     loading: false,
     error: null,
     redirect: false,
-    showFeedbackModal: false,
     showErrorModal: false
 };
+
+const wipeState = (state, action) => {
+    return updateObject(state, {
+        personal_info: {},
+        screening_info: {},
+        loading: false,
+        error: null,
+        redirect: false,
+        showErrorModal: false
+    });
+}
 
 const savePersonalInfoSuccess = (state, action) => {
     return updateObject(state, {
@@ -41,6 +51,7 @@ const submitInformationFail = (state, action) => {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SAVE_PERSONAL_INFO_SUCCESS: return savePersonalInfoSuccess(state, action);
+        case actionTypes.WIPE_INFO_STATE: return wipeState(state, action);
 
         case actionTypes.SUBMIT_INFORMATION_START: return submitInformationStart(state,action);
         case actionTypes.SUBMIT_INFORMATION_SUCCESS: return submitInformationSuccess(state,action);

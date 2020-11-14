@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import classes from './ReportForm.module.css'
-// import FeedbackModal from '../../Modal/FeedbackModal/FeedbackModal'
+import FeedbackModal from '../../Components/FeedbackModal/FeedbackModal'
+
 import { useHistory } from 'react-router-dom'
 
 const ReportIncidentForm = props => {
@@ -84,9 +85,9 @@ const ReportIncidentForm = props => {
         }
         formData["tags"] = selectedTags
         props.OnReportIncident(formData, props.location_id)
-        // setTimeout(() => {
-        //     props.OnSetFeedbackModal(false)
-        // }, 3500)
+        setTimeout(() => {
+            props.OnSetFeedbackModal(false)
+        }, 3500)
     };
 
     let incidents = ["Unsafe", "Inefficient", "Unhelpful Staff", "Reckless Staff", "Not Enforcing Rules", "Over Capacity", "No Sanisiter","Other"].map(incident =>
@@ -147,10 +148,10 @@ const ReportIncidentForm = props => {
 
     return (
         <>
-            {/* <FeedbackModal
+            <FeedbackModal
                 close={() => props.OnSetFeedbackModal(false)}
                 show={props.showFeedbackModal} >
-            </FeedbackModal> */}
+            </FeedbackModal>
             <div className={classes.Container}>
                 <h1> Location: {props.location_name} </h1>
                 <div>

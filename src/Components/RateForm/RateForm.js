@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import classes from './RateForm.module.css'
 import StarRating from 'react-svg-star-rating';
 import { updateObject } from '../../shared/utility';
-// import FeedbackModal from '../../Modal/FeedbackModal/FeedbackModal'
+import FeedbackModal from '../../Components/FeedbackModal/FeedbackModal'
 import { useHistory } from 'react-router-dom'
 const RateForm = (props) => {
     let history = useHistory()
@@ -39,10 +39,10 @@ const RateForm = (props) => {
     }
     return (
         <>
-            {/* <FeedbackModal
+            <FeedbackModal
                 close={() => props.OnSetFeedbackModal(false)}
                 show={props.showFeedbackModal} >
-            </FeedbackModal> */}
+            </FeedbackModal>
             <div className={classes.Container}>
                 <StarRating
                     handleOnClick={ratingHandler}

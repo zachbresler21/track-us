@@ -10,6 +10,7 @@ const Header = (props) => {
     const onClickHandler = () => {
         if (pathname === "/qrcodescanner" || pathname === "/location" || pathname === "/personalinfo" || pathname === "/searchlocations") {
             props.OnWipeState()
+            props.OnWipeInfoState()
             history.push('/')
         }
         else if (pathname === "/ratelocation" || pathname === "/reportlocation") {

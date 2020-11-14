@@ -8,7 +8,8 @@ const initialState = {
     loading: false,
     error: null,
     redirect: false,
-    showFeedbackModal: false,
+    showRateFeedback: false,
+    showReportFeedback: false,
     showErrorModal: false,
 };
 
@@ -20,10 +21,19 @@ const wipeState = (state, action) => {
         loading: false,
         error: null,
         redirect: false,
-        showFeedbackModal: false,
+        showRateFeedback: false,
+        showReportFeedback: false,
         showErrorModal: false
     });
 }
+
+const setRateFeedbackModalState = (state, action) => {
+    return updateObject(state, { showRateFeedback: action.val });
+};
+
+const setReportFeedbackModalState = (state, action) => {
+    return updateObject(state, { showReportFeedback: action.val });
+};
 
 const searchLocationsByIdStart = (state, action) => {
     return updateObject(state, {
@@ -93,7 +103,7 @@ const reportIncidentStart = (state, action) => {
 const reportIncidentSuccess = (state, action) => {
     return updateObject(state, {
         loading: false,
-        showFeedbackModal: true,
+        showReportFeedback: true,
         error: null,
     });
 };
@@ -102,7 +112,27 @@ const reportIncidentFail = (state, action) => {
     return updateObject(state, {
         loading: false,
         error: action.error,
-        showFeedbackModal: false,
+        showReportFeedback: false,
+    });
+};
+
+const rateLocationStart = (state, action) => {
+    return updateObject(state, { loading: true });
+};
+
+const rateLocationSuccess = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        showRateFeedback: true,
+        error: null,
+    });
+};
+
+const rateLocationFail = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        error: action.error,
+        showRateFeedback: false,
     });
 };
 
@@ -110,6 +140,10 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
 
         case actionTypes.WIPE_STATE: return wipeState(state, action);
+
+        case actionTypes.SET_RATE_FEEDBACK_MODAL_STATE: return setRateFeedbackModalState(state, action);
+        case actionTypes.SET_REPORT_FEEDBACK_MODAL_STATE: return setReportFeedbackModalState(state, action);
+
         case actionTypes.SEARCH_LOCATIONS_BY_ID_START: return searchLocationsByIdStart(state, action);
         case actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS: return searchLocationsByIdSuccess(state, action);
         case actionTypes.SEARCH_LOCATIONS_BY_ID_FAIL: return searchLocationsByIdFail(state, action);
@@ -121,6 +155,10 @@ const reducer = (state = initialState, action) => {
         case actionTypes.REPORT_INCIDENT_START: return reportIncidentStart(state, action);
         case actionTypes.REPORT_INCIDENT_SUCCESS: return reportIncidentSuccess(state, action);
         case actionTypes.REPORT_INCIDENT_FAIL: return reportIncidentFail(state, action);
+
+        case actionTypes.RATE_LOCATION_START: return rateLocationStart(state, action);
+        case actionTypes.RATE_LOCATION_SUCCESS: return rateLocationSuccess(state, action);
+        case actionTypes.RATE_LOCATION_FAIL: return rateLocationFail(state, action);
 
         default:
             return state;
