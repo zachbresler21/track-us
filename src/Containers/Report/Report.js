@@ -17,7 +17,6 @@ const mapStateToProps = state => {
     return {
         location_id: state.locations.location_id,
         location_name: state.locations.location_info.name
-
     };
 }
 

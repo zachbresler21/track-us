@@ -4,8 +4,11 @@ import debounce from 'lodash.debounce';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/locations'
 import LocationItem from './LocationItem/LocationItem'
+import { Redirect } from 'react-router-dom'
+
 import Spinner from '../../Components/Spinner/Spinner'
 import navigation from '../../assets/navigation.png'
+
 const SearchLocations = (props) => {
 
     const [search, _setSearch] = useState("")
@@ -53,6 +56,8 @@ const SearchLocations = (props) => {
 
     return (
         <div className={classes.Container}>
+            {props.redirect ? <Redirect to={`/location`} /> : null}
+
             <input type="text" placeholder="Search Locations" onChange={inputChangeHandler} />
             <div className={classes.Navigation} >
                 <img src={navigation} alt="navigation image" />

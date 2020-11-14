@@ -21,7 +21,8 @@ export const searchLocationsByIdSuccess = (location_info, error, location_id) =>
         type: actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS,
         location_info: location_info,
         error: error,
-        location_id: location_id
+        location_id: location_id,
+        redirect: false
     };
 };
 
@@ -80,7 +81,6 @@ export const searchLocationsByTerm = (term) => {
              .endAt(term+"\uf8ff")
              .once("value")
              .then(snap => snap.val()).then(locations => {
-                console.log(locations)
                 ref.once("value").then((snap => {
                     dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
                 }))
