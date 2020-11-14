@@ -3,7 +3,7 @@ import { updateObject } from '../../shared/utility';
 
 const initialState = {
     location_info: {},
-    location_id: {},
+    location_id: null,
     loading: false,
     error: null,
     redirect: false,
@@ -19,7 +19,8 @@ const searchLocationsByIdSuccess = (state, action) => {
         error: action.error,
         location_info: action.location_info,
         redirect: action.error === null,
-        showErrorModal: action.error !== null
+        showErrorModal: action.error !== null,
+        location_id: action.location_id
     });
 };
 

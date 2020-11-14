@@ -10,11 +10,12 @@ export const searchLocationsByIdStart = () => {
     };
 };
 
-export const searchLocationsByIdSuccess = (location_info, error) => {
+export const searchLocationsByIdSuccess = (location_info, error, location_id) => {
     return {
         type: actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS,
         location_info: location_info,
-        error: error
+        error: error,
+        location_id: location_id
     };
 };
 
@@ -29,7 +30,7 @@ export const searchLocationsById = (location_id) => {
         dispatch(searchLocationsByIdStart());
         axios.get(`https://track-us-2a92c.firebaseio.com/locations/${location_id}.json`)
             .then(response => {
-                dispatch(searchLocationsByIdSuccess(response.data, response.data === null || response.data === undefined ? "Location does not exist" : null));
+                dispatch(searchLocationsByIdSuccess(response.data, response.data === null || response.data === undefined ? "Location does not exist" : null, location_id));
             })
             .catch(error => {
                 dispatch(searchLocationsByIdFail(error));

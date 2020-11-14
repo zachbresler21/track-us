@@ -4,6 +4,7 @@ import classes from './ScreeningForm.module.css'
 import { updateObject } from '../../shared/utility';
 import blankcheck from '../../assets/blank-check-box.svg'
 import checkbox from '../../assets/check-box.svg'
+import * as actions from '../../store/actions/information'
 
 
 const ScreeningForm = (props) => {
@@ -24,13 +25,30 @@ const ScreeningForm = (props) => {
         _setFormData(val);
     }
 
-    const onChangeHandler = (e) => {
+    const onChangeHandler = (e, answer) => {
         const value = e.target.value
         let updatedData = formData
-        updatedData = updateObject({
-            ...formData,
-            [e.target.name]: value
-        })
+        if(e.target.name === "travelled")
+        {
+            updatedData = updateObject({
+                ...formData,
+                [e.target.name]: answer
+            })
+        }
+        else if (e.target.name === "contact")
+        {
+            updatedData = updateObject({
+                ...formData,
+                [e.target.name]: answer
+            })
+        }
+        else{
+            updatedData = updateObject({
+                ...formData,
+                [e.target.name]: value
+            })
+        }
+
         setFormData(updatedData)
     }
 
@@ -61,6 +79,12 @@ const ScreeningForm = (props) => {
             </div>
         </div>)
 
+
+    const onSubmitHanlder = () =>
+    {
+        props.OnSubmitInformation(props.personalInfo, {...formData, selectedSymptoms}, props.locationId)
+    }
+
     return (
         <div className={classes.Container}>
             <div className={classes.SectionTitle}>
@@ -78,11 +102,11 @@ const ScreeningForm = (props) => {
                     <label>Have you travelled in the past 14 days?</label>
                     <div className={classes.OptionsContainer}>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e)} />
+                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e, true)} />
                             <p> Yes </p>
                         </div>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e)} />
+                            <input type="radio" name="travelled"  onChange={(e) => onChangeHandler(e, false)} />
                             <p> No </p>
                         </div>
                     </div>
@@ -92,11 +116,11 @@ const ScreeningForm = (props) => {
                     <label>Have you been in contact with someone who has tested positive for COVID in the past 14 days?</label>
                     <div className={classes.OptionsContainer}>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e)} />
+                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e, true)} />
                             <p> Yes </p>
                         </div>
                         <div className={classes.OptionItem}>
-                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e)} />
+                            <input type="radio" name="contact"  onChange={(e) => onChangeHandler(e, false)} />
                             <p> No </p>
                         </div>
                     </div>
@@ -111,11 +135,25 @@ const ScreeningForm = (props) => {
             </form>
 
             <div className ={classes.ButtonContainer}>
-                <button> Submit </button>
+                <button onClick={() => {onSubmitHanlder()}}> Submit </button>
             </div>
         </div>
-
     )
 }
 
-export default ScreeningForm
+
+const mapStateToProps = state => {
+    return {
+        locationId: state.locations.location_id,
+        personalInfo: state.information.personal_info
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        OnSubmitInformation: (personalInfo, screeningInfo, locationId) => dispatch(actions.submitInformation(personalInfo, screeningInfo, locationId)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScreeningForm)
+

@@ -11,6 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 import thunk from 'redux-thunk';
 
 import locationsReducer from './store/reducers/locations'
+import informationReducer from './store/reducers/information'
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -20,6 +21,7 @@ const composeEnhancers =
 
 const rootReducer = combineReducers({
   locations: locationsReducer,
+  information: informationReducer
 });
 
 const appReducer = (state, action) => {
