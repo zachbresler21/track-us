@@ -54,13 +54,17 @@ const searchLocationsByTermStart = (state, action) => {
 
 const searchLocationsByTermSuccess = (state, action) => {
     let result = []
+    if(action.locations instanceof Array)
+    {
+        result = action.locations
+
+    }
+    else{
     if (action.locations instanceof Array) {
-        console.log("check")
         result = action.locations
 
     }
     else {
-        console.log("test")
         // result = Object.keys(action.locations)
         for (var i in Object.keys(action.locations)) {
             result.push(action.locations[Object.keys(action.locations)[i]])
@@ -81,6 +85,26 @@ const searchLocationsByTermFail = (state, action) => {
     });
 }
 
+const reportIncidentStart = (state, action) => {
+    return updateObject(state, { loading: true });
+};
+
+const reportIncidentSuccess = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        showFeedbackModal: true,
+        error: null,
+    });
+};
+
+const reportIncidentFail = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        error: action.error,
+        showFeedbackModal: false,
+    });
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 
@@ -93,6 +117,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SEARCH_LOCATIONS_BY_TERM_SUCCESS: return searchLocationsByTermSuccess(state, action);
         case actionTypes.SEARCH_LOCATIONS_BY_TERM_FAIL: return searchLocationsByTermFail(state, action);
 
+        case actionTypes.REPORT_INCIDENT_START: return reportIncidentStart(state,action);
+        case actionTypes.REPORT_INCIDENT_SUCCESS: return reportIncidentSuccess(state,action);
+        case actionTypes.REPORT_INCIDENT_FAIL: return reportIncidentFail(state,action);
 
         default:
             return state;

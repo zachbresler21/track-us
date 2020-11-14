@@ -1,8 +1,7 @@
 import React, { useState, useRef } from 'react'
-import classes from './ReportIncident.module.css'
-import FeedbackModal from '../../Modal/FeedbackModal/FeedbackModal'
+import classes from './ReportForm.module.css'
+// import FeedbackModal from '../../Modal/FeedbackModal/FeedbackModal'
 import { useHistory } from 'react-router-dom'
-import OutsideAlerter from '../../OutsideAlerter/OutsideAlerter'
 
 const ReportIncidentForm = props => {
     const clone = require('rfdc')()
@@ -28,15 +27,6 @@ const ReportIncidentForm = props => {
             },
             valid: true
         },
-        location: {
-            elementType: 'input',
-            name: 'Location of Incident',
-            value: '',
-            validation: {
-            },
-            valid: true,
-            touched: false
-        },
         add_info: {
             elementType: 'textarea',
             name: 'Additional Information of Incident',
@@ -61,25 +51,13 @@ const ReportIncidentForm = props => {
 
     const inputChangedHandler = (event, inputIdentifier) => {
         let updatedReportInfo = clone(reportInfo)
-        if (inputIdentifier !== "location") {
-            const updatedFormElement = updateObject(reportInfo[inputIdentifier], {
-                value: event.target.value,
-                touched: true
-            });
-            updatedReportInfo = updateObject(reportInfo, {
-                [inputIdentifier]: updatedFormElement
-            });
-        }else{setShowResult(false)
-            setSearch(event.target.textContent)
-            const updatedFormElement = updateObject(reportInfo[inputIdentifier], {
-                value: event.target.textContent,
-                touched: true
-            });
-            updatedReportInfo = updateObject(reportInfo, {
-                [inputIdentifier]: updatedFormElement
-            });
-        }
-
+        const updatedFormElement = updateObject(reportInfo[inputIdentifier], {
+            value: event.target.value,
+            touched: true
+        });
+        updatedReportInfo = updateObject(reportInfo, {
+            [inputIdentifier]: updatedFormElement
+        });
 
         setReportInfo(updatedReportInfo);
     }
@@ -105,40 +83,16 @@ const ReportIncidentForm = props => {
             formData[formElementIdentifier] = reportInfo[formElementIdentifier].value
         }
         formData["tags"] = selectedTags
-        props.OnReportIncident(formData, props.taxi_numberplate)
-        setTimeout(() => {
-            props.OnSetFeedbackModal(false)
-        }, 3500)
+        props.OnReportIncident(formData, props.location_id)
+        // setTimeout(() => {
+        //     props.OnSetFeedbackModal(false)
+        // }, 3500)
     };
 
-    let incidents = ["Accident", "Unroadworthy", "Overcrowding", "Reckless Driving", "Speeding", "Other"].map(incident =>
-        <div key = {incident} className={selectedTags.includes(incident) ? classes.IncidentType : classes.SelectedIncidentType} onClick={() => selectTagHandler(incident)}>
+    let incidents = ["Unsafe", "Inefficient", "Unhelpful Staff", "Reckless Staff", "Not Enforcing Rules", "Over Capacity", "No Sanisiter","Other"].map(incident =>
+        <div key={incident} className={selectedTags.includes(incident) ? classes.SelectedIncidentType : classes.IncidentType} onClick={() => selectTagHandler(incident)}>
             {incident}
         </div>)
-    const [showResult, setShowResult] = useState(false)
-    const [search, _setSearch] = useState("");
-
-    const searchRef = useRef(search);
-
-    const setSearch = val => {
-        searchRef.current = val;
-        _setSearch(val);
-    }
-    const locations = ["Milnerton", "Rondebosch", "Claremont", "Town", "Plattekloof", "Plumstead", "Sandton", "Hilbrow"]
-    const searchLocations = (term) => {
-        let lowercase = term.toLowerCase()
-        return locations.filter(location => location.toLowerCase().indexOf(lowercase) >= 0)
-    }
-    const [result, setResult] = useState(["Milnerton", "Rondebosch", "Claremont", "Town", "Plattekloof", "Plumstead", "Sandton", "Hilbrow"]);
-    const handleChange = (e) => {
-        setShowResult(true)
-        let search = searchRef.current;
-        search = e.target.value;
-        setSearch(search);
-        setResult(searchLocations(searchRef.current))
-    }
-
-    let viewResults = result.map(location => (<li className={classes.ListResult} key = {location} onClick={(event) => inputChangedHandler(event, "location")}>{location}</li>))
 
     let form = (
         <form className={classes.formIncident}>
@@ -167,23 +121,6 @@ const ReportIncidentForm = props => {
                         </div>
                     </div>
 
-
-                    <OutsideAlerter removeResults={setShowResult} showResult={showResult}>
-                        <div className={classes.SegmentedComponent}>
-                            <label > Location:  </label>
-                            <input
-                                type="input"
-                                value={searchRef.current}
-                                name={reportInfo.name}
-                                className={classes.Input}
-                                onChange={handleChange}
-                                // value={searchRef.current}
-                            />
-                        </div>
-                        {showResult && viewResults.length > 0 ? <div className={classes.SuggestedLocation_container}>
-                            {viewResults}
-                        </div> : null}
-                    </OutsideAlerter>
                 </div>
 
                 <div className={classes.IncidentTypeList}>
@@ -210,12 +147,12 @@ const ReportIncidentForm = props => {
 
     return (
         <>
-            <FeedbackModal
+            {/* <FeedbackModal
                 close={() => props.OnSetFeedbackModal(false)}
                 show={props.showFeedbackModal} >
-            </FeedbackModal>
+            </FeedbackModal> */}
             <div className={classes.Container}>
-                <h1> TAXI: {props.taxi_numberplate} </h1>
+                <h1> Location: {props.location_name} </h1>
                 <div>
                     {form}
                 </div>
