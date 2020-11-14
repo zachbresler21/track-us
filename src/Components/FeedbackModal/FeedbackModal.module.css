@@ -1,0 +1,51 @@
+.ModalHidden {
+    position: fixed;
+    z-index: 500;
+    background-color:#fff;
+    width: 15%;
+    right: 5%;
+    bottom: 10%;
+    box-sizing: border-box;
+    transition: none;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+    padding: 30px;
+    visibility: hidden;
+    transform: all 0.2s linear;
+    
+}
+
+.ModalVisible {
+    position: fixed;
+    z-index: 500;
+    background-color:none;
+    width: 80px;
+    right: -1%;
+    top: 0.1%;
+    box-sizing: border-box;
+    transition: none;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 15px;
+    visibility: visible;
+    transform: none;
+    font-size: 14px;
+    text-align: left;
+    height: 50px;
+}
+
+
+.CloseCross {
+    height: 43px;
+    position: absolute;
+    cursor: pointer;
+    right: 5px;
+    z-index: 505;
+    top: 0%;
+}
+
+.InnerModalContainer {
+    position: relative;
+    display: flex;
+}
