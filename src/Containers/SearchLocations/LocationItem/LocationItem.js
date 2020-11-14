@@ -5,7 +5,7 @@ import location from '../../../assets/location.svg'
 import { Redirect } from 'react-router-dom'
 const LocationItem = (props) => {
     const [redirect, setRedirect] = useState("")
-
+console.log(props)
     const onClickHandler = (id) => {
         setRedirect(<Redirect to="/location" />)
         props.OnSearchLocationsById(id)

@@ -15,8 +15,8 @@
     position: fixed;
     z-index: 500;
     border: none;
-    top: 40px;
-    box-shadow: 0 5px 11px #a7b0b87e;
+    top: 80px;
+    box-shadow: 0 5px 11px #a7b0b8a8;
     outline: none;
     transition: all 0.2s linear;
 }
@@ -24,6 +24,18 @@
 .Container input:focus {
     box-shadow: 0 5px 20px #94a8b97e;
     transition: all 0.2s linear;
+}
+
+.Navigation{
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    display: flex;
+}
+
+.Navigation img{
+    width: 390px;
+    opacity: 0.3;z-index: -1;
 }
 
 .Results {
@@ -36,7 +48,7 @@
     box-shadow: 0 0px 20px #a7b0b87e;
     padding: 5px 14px;
     box-sizing: border-box;
-    
+    z-index: 500;
 }
 
 .Results h2{

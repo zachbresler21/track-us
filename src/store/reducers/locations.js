@@ -9,7 +9,7 @@ const initialState = {
     error: null,
     redirect: false,
     showFeedbackModal: false,
-    showErrorModal: false
+    showErrorModal: false,
 };
 
 const wipeState = (state, action) => {
@@ -26,7 +26,9 @@ const wipeState = (state, action) => {
 }
 
 const searchLocationsByIdStart = (state, action) => {
-    return updateObject(state, { error: null, loading: true });
+    return updateObject(state, {
+        error: null
+    });
 };
 
 const searchLocationsByIdSuccess = (state, action) => {
@@ -35,14 +37,15 @@ const searchLocationsByIdSuccess = (state, action) => {
         location_info: action.location_info,
         redirect: action.error === null,
         showErrorModal: action.error !== null,
-        location_id: action.location_id
+        location_id: action.location_id,
+        // loading: false
     });
 };
 
 const searchLocationsByIdFail = (state, action) => {
     return updateObject(state, {
         error: action.error,
-        loading: false,
+        // loading: false,
         redirect: false,
         showErrorModal: true
     });
@@ -67,11 +70,10 @@ const searchLocationsByTermSuccess = (state, action) => {
                 result.push(action.locations[Object.keys(action.locations)[i]])
             }
         }
-        console.log(result)
-
     };
     return updateObject(state, {
         search_locations: result,
+        loading: false
     });
 }
 
