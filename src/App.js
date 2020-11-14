@@ -17,6 +17,7 @@ const App = (props) => {
         <Route path="/personalinfo" exact component={PersonalInfoForm} />
         <Route path="/screeninginfo" exact component={ScreeningForm} />
         <Route path="/searchlocations" exact component={SearchLocations} />
+        <Route path="/location/:id" exact component={LocationProfile} />
       </Switch>
     </Layout>
   );

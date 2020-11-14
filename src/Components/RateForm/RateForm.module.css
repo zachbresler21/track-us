@@ -1,0 +1,77 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+}
+
+.Form label{
+    color: #fff;
+    margin-top: 30px;
+}
+
+.Container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Form textarea{
+    width: 85vw;
+    max-width: 85vw;
+    min-width: 85vw;
+    height: 250px;
+    border-radius: 5px;
+    margin-top: 8px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    outline: none;
+    border: 2px solid transparent;
+    transition: all linear 0.12s;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    background-color: #191d21;
+    color: white;
+    border: 2px solid #767676;
+    box-sizing: border-box;
+}
+
+.Form textarea:focus{
+    border: 2px solid #BA8D5F;
+    transition: all linear 0.12s;
+}
+
+.ButtonGroup{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+.SecondaryButton{
+    width: 40%;
+    height: 40px;
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 15px;
+    border-style: none;
+    border: 2px solid #014B8C;
+    font-weight: 600;
+outline: none;
+}
+.PrimaryButton{
+
+    width: 40%;
+    height: 40px;
+    height: 40px;
+    background-color: #014B8C;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 15px;
+    border-color: #014B8C;
+    box-shadow: none;
+    border-style: none;
+    outline: none;
+}
