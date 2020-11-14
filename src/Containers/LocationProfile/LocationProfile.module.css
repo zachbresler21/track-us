@@ -1,0 +1,178 @@
+.Container {
+    height: 100vh;
+    width: 100vw;
+    margin-top: 20px;
+}
+
+.TopSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    /* padding: 0 60px; */
+    box-sizing: border-box;
+}
+
+.TopSection img {
+    height: 32px ;
+}
+
+.ReportImage{
+    height: 32px ;
+    width:32px;
+}
+
+.TopSection span {
+    font-size: 18px;
+    font-weight: 600;
+    position: relative;
+}
+
+.BusinessInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.Rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+}
+
+.imageContainer {
+    display: flex;
+    height: 125px;
+    width: 33%;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    overflow: hidden;
+    z-index: 550;
+    position: absolute;
+    left: 126px;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageContainer div {
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center;
+}
+
+.Title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.Title h1 {
+    margin-bottom: 5px;
+}
+
+.ButtonsGroup {
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 30px;
+}
+
+.ButtonsGroup button {
+    border-radius: 16px;
+    border: 0;
+    background-color: #fff;
+    font-size: 18px;
+    width: 100%;
+    box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.2);
+    border: 1px solid #25519a
+}
+
+.LeftContainer {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    padding: 0 10px;
+    margin-top: 20px;
+}
+
+.RightContainer {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    padding: 0 10px;
+}
+
+.TotalBlock {
+    height: 180px;
+    border: 0;
+    box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.2);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    width: 94%;
+    z-index: 500;
+    padding-top: 10px;
+}
+
+.ValueTot {
+    font-size: 29px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.ValueTotA {
+    font-size: 29px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.TextTot {
+
+    font-size: 17px;
+    color: rgba(63, 63, 63, 0.74);
+}
+
+.ScanQR {
+    height: 150px;
+    margin-top: 10px;
+}
+
+.RateButton {
+    height: 65px;
+    margin-bottom: 10px;
+}
+
+.ReportButton {
+    height: 65px;
+    margin-bottom: 10px;
+}
+
+.ViewButton {
+    height: 160px;
+}
+
+.Location {
+    display: flex;
+}
+
+.Location img {
+    height: 15px;
+    margin-right: 4px;
+    margin-left: -4px;
+}
+
+.Location h5 {
+    color: #a2a6bb;
+}

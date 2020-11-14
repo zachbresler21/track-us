@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Layout from './Containers/Layout/Layout'
+import QRCodeScanner from './Containers/QRCodeScanner/QRCodeScanner'
+import PersonalInfoForm from './Containers/PersonalInfoForm/PersonalInfoForm'
+import ScreeningForm from './Containers/ScreeningForm/ScreeningForm'
+import { Switch, Route } from 'react-router-dom'
+import WelcomeScreen from './Containers/WelcomeScreen/WelcomeScreen'
+import LocationProfile from './Containers/LocationProfile/LocationProfile'
+import SearchLocations from './Containers/SearchLocations/SearchLocations'
 
-function App() {
+import RateLocation from './Containers/RateLocation/RateLocation'
+import ReportLocation from './Containers/Report/Report';
+
+import { connect } from 'react-redux';
+import * as actions from './store/actions/locations'
+import * as infoactions from './store/actions/information'
+
+
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout OnWipeState={props.OnWipeState} OnWipeInfoState={props.OnWipeInfoState}>
+      <Switch>
+        <Route path="/" exact component={WelcomeScreen} />
+        <Route path="/qrcodescanner" exact component={QRCodeScanner} />
+        <Route path="/personalinfo" exact component={PersonalInfoForm} />
+        <Route path="/screeninginfo" exact component={ScreeningForm} />
+        <Route path="/searchlocations" exact component={SearchLocations} />
+        <Route path="/ratelocation" exact component={RateLocation} />
+        <Route path="/reportlocation" exact component={ReportLocation} />
+        <Route path="/location" exact component={LocationProfile} />
+
+      </Switch>
+    </Layout>
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    OnWipeState: () => dispatch(actions.wipeState()),
+    OnWipeInfoState: () => dispatch(infoactions.wipeState())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

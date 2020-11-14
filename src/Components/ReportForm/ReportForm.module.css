@@ -1,0 +1,259 @@
+.Container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 10px; */
+    overflow: hidden;
+}
+
+.formIncident{
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.Container h1 {
+    color: #25519A;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.InputContainer {
+    width: 100%;
+}
+
+.TopSection {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}
+
+.TopSection label {
+    margin-right: 10px;
+    margin-bottom: 3px;
+    /* width: 80px; */
+}
+
+.DateTime{
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.SegmentedComponent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    width: 300px;
+}
+
+.SegmentedComponent label 
+{
+    color: black;
+    padding-top: 5px;
+}
+
+/* .SegmentedComponent input{
+    width: 100% !important;
+} */
+
+.SegmentedComponentT{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.SegmentedComponentT label 
+{
+    color: #25519A;
+    padding-top: 5px;
+}
+
+.SegmentedComponentT input
+{
+    background-color: white;
+    color: black;
+}
+
+
+.IncidentTypeList{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* max-width: 65rem; */
+    margin-bottom: 15px;
+    justify-content: space-evenly;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.IncidentType{
+    max-width: 40%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 10px;
+    align-items: center;
+    /* background-color: #191d21; */
+    background-color:white;
+    color: #25519A;
+    text-align: center;
+    font-weight: 500;
+    margin-right: 10px;
+    margin-top: 15px;
+    transition: all 0.12s linear;
+}
+
+.SelectedIncidentType{
+    max-width: 40%;
+    height: 20px;
+    border: 1px solid rgb(78, 92, 105);
+    border-radius: 20px;
+    padding: 10px 10px;
+    align-items: center;
+    background-color: #25519a;
+    color: white;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 15px;
+    font-weight: 500;
+    transition: all 0.12s linear;
+}
+
+.Additional {
+    width: 100vw;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.Additional textarea {
+    margin-top: 20px;
+    min-width: 300px;
+    max-width: 300px;
+    width: 300px;
+    height: 120px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    background-color: white;
+    color: #000;
+    border: 2px solid #767676;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid #bbc3e998;
+    background-color: #c9cfee86;
+    padding: 20px 22px;
+}
+
+.Additional textarea:focus {
+    border: 1px solid #25519a;
+    transition: all linear 0.12s;
+}
+
+.ButtonGroup {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    padding: 5px 10px;
+    width: 300px;
+    margin-left: 30px;
+}
+
+.CancelButton {
+    width: 40%;
+    height: 40px;
+    background-color: white;
+    color: #25519A;
+    border-radius: 5px;
+    margin-right: 20px;
+    font-size: 15px;
+    border-style: none;
+    border: 2px solid #014B8C;
+    font-weight: 600;
+    outline: none;
+}
+
+
+.SaveButton {
+    width: 40%;
+    height: 40px;
+    height: 40px;
+    background-color: #014B8C;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    font-size: 15px;
+    border-color: #014B8C;
+    box-shadow: none;
+    border-style: none;
+    outline: none;
+}
+
+.Input {
+    border-radius: 5px;
+    height: 32px;
+    color: black;
+    background-color: #191d21;
+    font-size: 15px;
+    border-style: solid;
+    width: 97%;
+    border: 2px solid #767676;
+    outline: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195)); */
+    box-sizing: border-box;
+    padding: 15px 10px;
+}
+
+.InputT {
+    border-radius: 5px;
+    height: 32px;
+    color: black;
+    background-color: #191d21;
+    font-size: 15px;
+    border-style: solid;
+    width: 95%;
+    border: 1px solid #ccc;
+    outline: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(195, 195, 195)); */
+    padding: 15px 10px;
+    box-sizing: border-box;
+    transition: all 0.2s linear ;
+}
+
+.Input:focus {
+    border: 1px solid #25519a;
+    transition: all 0.2s linear ;
+}
+
+.InputT:focus {
+    border: 1px solid #25519a;
+    transition: all 0.2s linear ;
+}
+/* 
+.TextAreaInput:focus {
+    border: 2px solid #BA8D5F;
+    transition: all linear 0.12s;
+} */
+
+.SuggestedLocation_container{
+    list-style: none;
+    position: absolute;
+    border: 1px solid #767676;
+    width: 78%;
+    background-color: #31383f;
+    color: rgb(230, 230, 230);
+    padding: 10px 12px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    max-height: 106px;
+    overflow: hidden;
+    box-shadow: 0 3px 5px hsla(0, 0%, 25%, 0.5);
+}

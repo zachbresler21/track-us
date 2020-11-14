@@ -1,0 +1,29 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    align-items: center;
+}
+
+.Container h4{
+    /* color: #fff; */
+}
+
+.Container p{
+    /* color: #fff; */
+}
+
+.codeContainer{
+    height: 100%;
+    width: 100%;
+    background-color: #ABB8CF;
+    border-radius: 20px;
+}
+
+.codeContainer section{
+    border-radius: 20px;
+}
+
+.RedirectingMessage{
+    margin-top: -10px;
+}

@@ -1,0 +1,53 @@
+.Container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.LocationInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.Image{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 60px;
+    height: 60px;
+    margin-right: 17px;
+    overflow: hidden;
+}
+
+.Image img {
+    height: 100%;
+    width: 100%;
+}
+
+.Star{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.Star img{
+    height: 20px;
+    margin-left: 3px;
+}  
+
+
+.Location{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #717483;
+}
+
+.Location img{
+    height: 12px;
+    margin-right: 3px;
+}
+
+.Title{
+    font-weight: 500;
+    font-size: 16px;
+}
