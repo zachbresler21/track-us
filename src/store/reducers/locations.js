@@ -56,12 +56,10 @@ const searchLocationsByTermSuccess = (state, action) => {
     let result = []
     if (action.locations instanceof Array) {
         result = action.locations
-
     }
     else {
         if (action.locations instanceof Array) {
             result = action.locations
-
         }
         else {
             // result = Object.keys(action.locations)
@@ -70,10 +68,11 @@ const searchLocationsByTermSuccess = (state, action) => {
             }
         }
         console.log(result)
-        return updateObject(state, {
-            search_locations: result,
-        });
+
     };
+    return updateObject(state, {
+        search_locations: result,
+    });
 }
 
 const searchLocationsByTermFail = (state, action) => {
