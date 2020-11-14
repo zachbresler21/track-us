@@ -72,6 +72,18 @@ const LocationProfile = (props) => {
 
             </div>
             <div className={classes.ButtonsGroup}>
+                
+                <div className={classes.RightContainer}>
+                    <div className={classes.TotalBlock}>
+                        <span className={classes.ValueTot}>{props.location_info.num_people}</span>
+                        <span className={classes.TextTot}>Current number of people</span>
+                        <span className={classes.ValueTotA}>{props.location_info.capacity}</span>
+                        <span className={classes.TextTot}>Capacity for {props.location_info.name}</span>
+                    </div>
+                    {/* <NavLink to ="/qrcodescanner">
+                        <button className={classes.ScanQR}>Scan QR Code</button>
+                    </NavLink> */}
+                </div>
                 <div className={classes.LeftContainer}>
                     <NavLink to="/ratelocation">
                         <button className={classes.RateButton}>Rate</button>
@@ -81,15 +93,6 @@ const LocationProfile = (props) => {
                     </NavLink>
 
                     {/* <button className={classes.ViewButton}>View</button> */}
-                </div>
-                <div className={classes.RightContainer}>
-                    <div className={classes.TotalBlock}>
-                        <span className={classes.ValueTot}>{props.location_info.num_people}</span>
-                        <span className={classes.TextTot}>Number of people currently</span>
-                    </div>
-                    {/* <NavLink to ="/qrcodescanner">
-                        <button className={classes.ScanQR}>Scan QR Code</button>
-                    </NavLink> */}
                 </div>
             </div>
         </div>
