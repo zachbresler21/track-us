@@ -74,55 +74,55 @@ const searchLocationsByTermSuccess = (state, action) => {
             search_locations: result,
         });
     };
+}
 
-    const searchLocationsByTermFail = (state, action) => {
-        return updateObject(state, {
-            error: action.error,
-            loading: false,
-            redirect: false,
-            showErrorModal: true
-        });
-    }
+const searchLocationsByTermFail = (state, action) => {
+    return updateObject(state, {
+        error: action.error,
+        loading: false,
+        redirect: false,
+        showErrorModal: true
+    });
+}
 
-    const reportIncidentStart = (state, action) => {
-        return updateObject(state, { loading: true });
-    };
+const reportIncidentStart = (state, action) => {
+    return updateObject(state, { loading: true });
+};
 
-    const reportIncidentSuccess = (state, action) => {
-        return updateObject(state, {
-            loading: false,
-            showFeedbackModal: true,
-            error: null,
-        });
-    };
+const reportIncidentSuccess = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        showFeedbackModal: true,
+        error: null,
+    });
+};
 
-    const reportIncidentFail = (state, action) => {
-        return updateObject(state, {
-            loading: false,
-            error: action.error,
-            showFeedbackModal: false,
-        });
-    };
+const reportIncidentFail = (state, action) => {
+    return updateObject(state, {
+        loading: false,
+        error: action.error,
+        showFeedbackModal: false,
+    });
+};
 
-    const reducer = (state = initialState, action) => {
-        switch (action.type) {
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
 
-            case actionTypes.WIPE_STATE: return wipeState(state, action);
-            case actionTypes.SEARCH_LOCATIONS_BY_ID_START: return searchLocationsByIdStart(state, action);
-            case actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS: return searchLocationsByIdSuccess(state, action);
-            case actionTypes.SEARCH_LOCATIONS_BY_ID_FAIL: return searchLocationsByIdFail(state, action);
+        case actionTypes.WIPE_STATE: return wipeState(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_START: return searchLocationsByIdStart(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_SUCCESS: return searchLocationsByIdSuccess(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_ID_FAIL: return searchLocationsByIdFail(state, action);
 
-            case actionTypes.SEARCH_LOCATIONS_BY_TERM_START: return searchLocationsByTermStart(state, action);
-            case actionTypes.SEARCH_LOCATIONS_BY_TERM_SUCCESS: return searchLocationsByTermSuccess(state, action);
-            case actionTypes.SEARCH_LOCATIONS_BY_TERM_FAIL: return searchLocationsByTermFail(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_TERM_START: return searchLocationsByTermStart(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_TERM_SUCCESS: return searchLocationsByTermSuccess(state, action);
+        case actionTypes.SEARCH_LOCATIONS_BY_TERM_FAIL: return searchLocationsByTermFail(state, action);
 
-            case actionTypes.REPORT_INCIDENT_START: return reportIncidentStart(state, action);
-            case actionTypes.REPORT_INCIDENT_SUCCESS: return reportIncidentSuccess(state, action);
-            case actionTypes.REPORT_INCIDENT_FAIL: return reportIncidentFail(state, action);
+        case actionTypes.REPORT_INCIDENT_START: return reportIncidentStart(state, action);
+        case actionTypes.REPORT_INCIDENT_SUCCESS: return reportIncidentSuccess(state, action);
+        case actionTypes.REPORT_INCIDENT_FAIL: return reportIncidentFail(state, action);
 
-            default:
-                return state;
-        }
+        default:
+            return state;
     }
 };
 export default reducer;
