@@ -153,7 +153,7 @@ const ReportIncidentForm = props => {
                 show={props.showFeedbackModal} >
             </FeedbackModal>
             <div className={classes.Container}>
-                <h1> Location: {props.location_name} </h1>
+                <h1>{props.location_name} </h1>
                 <div>
                     {form}
                 </div>
