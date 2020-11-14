@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './WelcomeScreen.module.css'
 import virus from '../../assets/coronavirus.svg'
 import { NavLink } from 'react-router-dom'
 import search from '../../assets/searchLocations.svg'
 import qrcodescan from '../../assets/qrcodescan.svg'
+import * as actions from '../../store/actions/locations'
+import { connect } from 'react-redux'
 const WelcomeScreen = (props) => {
+    useEffect(() => {
+        props.OnWipeState()
+    }, [])
     return (
         <div className={classes.Container}>
             <img src={virus} alt="virus" className={classes.virusImage} />
@@ -28,5 +33,17 @@ const WelcomeScreen = (props) => {
         </div>
     )
 }
+const mapStateToProps = state => {
+    return {
+        locationId: state.locations.location_id,
+        personalInfo: state.information.personal_info
+    };
+}
 
-export default WelcomeScreen
+const mapDispatchToProps = dispatch => {
+    return {
+        OnWipeState: () => dispatch(actions.wipeState()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WelcomeScreen)

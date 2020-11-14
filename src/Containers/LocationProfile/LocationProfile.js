@@ -3,10 +3,10 @@ import classes from './LocationProfile.module.css'
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/locations'
 import location from '../../assets/location.svg'
-
+import star from '../../assets/star.svg';
+import reports from '../../assets/reports.svg';
+import { NavLink } from 'react-router-dom'
 const LocationProfile = (props) => {
-
-    // const { bgcolor, completed } = props;
 
     let completed = Math.floor((props.location_info.num_people / props.location_info.capacity) * 100)
     const containerStyles = {
@@ -21,7 +21,7 @@ const LocationProfile = (props) => {
     const fillerStyles = {
         height: '100%',
         width: `${completed}%`,
-        backgroundColor: '#3f79fb',
+        backgroundColor: '#6986B9',
         borderRadius: 'inherit',
         transition: 'width 1s ease-in-out',
         fontSize: 13,
@@ -39,15 +39,17 @@ const LocationProfile = (props) => {
     return (
         <div className={classes.Container}>
             <div className={classes.BusinessInfo}>
-                {/* <canvas id="myChart" width="400" height="400"></canvas> */}
                 <div className={classes.TopSection}>
                     <div className={classes.Rating}>
-                        <span>3.5</span>
-                        <img src="" alt="star" />
+                        <span>{props.location_info.avg_rating}</span>
+                        <img src={star} alt="star" />
                     </div>
                     <div className={classes.imageContainer}>
-                        {/* <img src="" alt="company image" /> */}
                         <div style={{ backgroundImage: `url(${props.location_info.image})` }}></div>
+                    </div>
+                    <div className={classes.Rating}>
+                        <span>{props.location_info.total_reports}</span>
+                        <img src={reports} alt="reports" className={classes.ReportImage} />
                     </div>
                 </div>
 
@@ -55,32 +57,34 @@ const LocationProfile = (props) => {
                     <h1>{props.location_info.name}</h1>
                     <div className={classes.Location}>
                         <img src={location} alt="location icon" />
-                        <h5>Montague Gardens</h5>
+                        <h5>{props.location_info.location}</h5>
                     </div>
 
                 </div>
-                <div>
+                {/* <div>
                     <div style={containerStyles}>
                         <div style={fillerStyles}>
                             <span style={labelStyles}>{`${props.location_info.num_people + " / " + props.location_info.capacity}`}</span>
                         </div>
-                    </div>
+                    </div> */}
                     {/* <span>{props.location_info.num_people+" / "+props.location_info.capacity}</span> */}
-                </div>
+                {/* </div> */}
 
             </div>
             <div className={classes.ButtonsGroup}>
                 <div className={classes.LeftContainer}>
                     <button className={classes.RateButton}>Rate</button>
                     <button className={classes.ReportButton}>Report</button>
-                    <button className={classes.ViewButton}>View</button>
+                    {/* <button className={classes.ViewButton}>View</button> */}
                 </div>
                 <div className={classes.RightContainer}>
                     <div className={classes.TotalBlock}>
-                        <span className={classes.ValueTot}>239</span>
-                        <span className={classes.TextTot}>Total num people per day</span>
+                        <span className={classes.ValueTot}>{props.location_info.num_people}</span>
+                        <span className={classes.TextTot}>Number of people currently</span>
                     </div>
-                    <button className={classes.ScanQR}>Scan QR Code</button>
+                    {/* <NavLink to ="/qrcodescanner">
+                        <button className={classes.ScanQR}>Scan QR Code</button>
+                    </NavLink> */}
                 </div>
             </div>
         </div>

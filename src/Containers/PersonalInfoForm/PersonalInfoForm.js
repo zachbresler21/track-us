@@ -3,19 +3,17 @@ import { connect } from 'react-redux';
 import classes from './PersonalInfoForm.module.css'
 import { updateObject } from '../../shared/utility';
 import * as actions from '../../store/actions/information'
-import { Redirect , useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const PersonalInfoForm = (props) => {
 
-    const [formData, _setFormData] = useState(
-        {
-            firstname: "",
-            lastname: "",
-            idnum: "",
-            email: "",
-            contact: "",
-        }
-    )
+    const [formData, _setFormData] = useState({
+        firstname: "",
+        lastname: "",
+        idnum: "",
+        email: "",
+        contact: "",
+    })
 
     const formRef = useRef(formData);
 
@@ -34,10 +32,9 @@ const PersonalInfoForm = (props) => {
         setFormData(updatedData)
     }
 
-    let redirect = null
+    // let redirect = null
     let history = useHistory()
-    const onNextHandler = () =>
-    {
+    const onNextHandler = () => {
         props.OnSaveData(formData)
         history.push("/screeninginfo")
     }
@@ -51,32 +48,32 @@ const PersonalInfoForm = (props) => {
             <form className={classes.FormContainer}>
                 <div className={classes.InputItem}>
                     <label>First Name</label>
-                    <input type="text" name="firstname" placeholder = "Your First Name" onChange={(e) => onChangeHandler(e)} />
+                    <input type="text" name="firstname" placeholder="Your First Name" onChange={(e) => onChangeHandler(e)} />
                 </div>
 
                 <div className={classes.InputItem}>
                     <label>Last Name</label>
-                    <input type="text" name="lastname" placeholder = "Your Last Name" onChange={(e) => onChangeHandler(e)} />
+                    <input type="text" name="lastname" placeholder="Your Last Name" onChange={(e) => onChangeHandler(e)} />
                 </div>
 
                 <div className={classes.InputItem}>
                     <label>ID Number</label>
-                    <input type="text" name="idnum" placeholder = "Your ID Number" onChange={(e) => onChangeHandler(e)} />
+                    <input type="text" name="idnum" placeholder="Your ID Number" onChange={(e) => onChangeHandler(e)} />
                 </div>
 
                 <div className={classes.InputItem}>
                     <label>Email Address</label>
-                    <input type="text" name="email" placeholder = "Your Email Address" onChange={(e) => onChangeHandler(e)} />
+                    <input type="text" name="email" placeholder="Your Email Address" onChange={(e) => onChangeHandler(e)} />
                 </div>
 
                 <div className={classes.InputItem}>
                     <label>Contact Number</label>
-                    <input type="text" name="contact" placeholder = "Your Contact Number" onChange={(e) => onChangeHandler(e)} />
+                    <input type="text" name="contact" placeholder="Your Contact Number" onChange={(e) => onChangeHandler(e)} />
                 </div>
             </form>
 
-            <div className ={classes.ButtonContainer}>
-                <button onClick ={() => {onNextHandler()}}> Next </button>
+            <div className={classes.ButtonContainer}>
+                <button onClick={() => { onNextHandler() }}> Next </button>
             </div>
         </div>
     )
