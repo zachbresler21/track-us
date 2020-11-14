@@ -6,7 +6,7 @@ import Header from '../../Components/Header/Header'
 const Layout = (props) => {
     return (
         <div className={classes.Container}>
-            <Header OnWipeState={props.OnWipeState} />
+            <Header OnWipeState={props.OnWipeState} OnWipeInfoState={props.OnWipeInfoState}/>
             <main>{props.children}</main>
         </div>
     )
