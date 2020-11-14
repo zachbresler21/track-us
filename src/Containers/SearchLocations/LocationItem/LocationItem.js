@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './LocationItem.module.css'
-
+import star from '../../../assets/star.svg'
+import location from '../../../assets/location.svg'
+import { Redirect } from 'react-router-dom'
 const LocationItem = (props) => {
+    const [redirect, setRedirect] = useState("")
+
+    const onClickHandler = (id) => {
+        setRedirect(<Redirect to="/location" />)
+        props.OnSearchLocationsById(id)
+    }
     return (
-        <div className={classes.Container}>
-            <div className={classes.Image}>
-                <img src={props.image}/>
+        <>
+            {redirect}
+            <div className={classes.Container} onClick={() => onClickHandler(props.location_id)}>
+                <div className={classes.Image}>
+                    <img src={props.image} alt="image business" />
+                </div>
+                <div className={classes.LocationInfo}>
+                    <span className={classes.Star}>{props.rating} <img src={star} alt="star" /></span>
+                    <span className={classes.Title}>{props.name} </span>
+                    <span className={classes.Location}><img src={location} alt="star" />{props.location}</span>
+                </div>
             </div>
-            <div className={classes.LocationInfo}>
-                {/* <span>3.5</span>
-                <span>Makro </span>
-                <span>Montague Gardens</span> */}
-                <span>{props.rating}</span>
-                <span>{props.name} </span>
-                <span>{props.location}</span>
-            </div>
-        </div>
+        </>
     )
 }
 

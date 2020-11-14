@@ -43,6 +43,8 @@ const SearchLocations = (props) => {
                 name={location.name}
                 location={location.location}
                 image={location.image}
+                location_id={location.key}
+                OnSearchLocationsById={props.OnSearchLocationsById}
             />
             )
         )
@@ -55,25 +57,6 @@ const SearchLocations = (props) => {
                 <h2>Select a Location</h2>
                 <div className={classes.ScrollContainer}>
                     {result}
-                    {/* <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem />
-                    <LocationItem /> */}
                 </div>
             </div>
         </div>
@@ -89,7 +72,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        OnSearchLocations: (term) => dispatch(actions.searchLocationsByTerm(term))
+        OnSearchLocations: (term) => dispatch(actions.searchLocationsByTerm(term)),
+        OnSearchLocationsById: (location_id) => dispatch(actions.searchLocationsById(location_id))
     }
 }
 

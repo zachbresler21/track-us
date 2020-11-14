@@ -39,6 +39,10 @@
     
 }
 
+.Results h2{
+color: #25519a
+}
+
 .ScrollContainer{
     height: 60vh;
     overflow: auto;
