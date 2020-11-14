@@ -8,6 +8,7 @@ import WelcomeScreen from './Containers/WelcomeScreen/WelcomeScreen'
 import LocationProfile from './Containers/LocationProfile/LocationProfile'
 import SearchLocations from './Containers/SearchLocations/SearchLocations'
 import RateLocation from './Containers/RateLocation/RateLocation'
+import ReportLocation from './Containers/Report/Report';
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Route path="/searchlocations" exact component={SearchLocations} />
         <Route path="/location/:id" exact component={LocationProfile} />
         <Route path="/ratelocation" exact component={RateLocation} />
+        <Route path="/reportlocation" exact component={ReportLocation} />
       </Switch>
     </Layout>
   );

@@ -145,3 +145,51 @@ const updateTotalRatings = (location_id, avg_rating, rating) => {
             });
     };
 }
+
+export const reportIncidentStart = () => {
+    return {
+        type: actionTypes.REPORT_INCIDENT_START
+    };
+};
+
+export const reportIncidentSuccess = (location) => {
+    return {
+        type: actionTypes.REPORT_INCIDENT_SUCCESS
+    };
+};
+
+export const reportIncidentFail = () => {
+    return {
+        type: actionTypes.REPORT_INCIDENT_FAIL
+    };
+};
+
+export const reportIncident = (reportData, location_id) => {
+    return dispatch => {
+        dispatch(reportIncidentStart());
+        axios.post(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/reports.json`, JSON.stringify(reportData))
+            .then(response => {
+                dispatch(reportIncidentSuccess(response.data));
+                dispatch(updateTotalReports(location_id))
+            })
+            .catch(error => {
+                dispatch(reportIncidentFail(error));
+            });
+    };
+};
+
+const updateTotalReports = (location_id) => {
+    return dispatch => {
+        axios.get(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/total_reports.json`)
+            .then(response => {
+                axios.put(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/total_reports.json`, response.data + 1)
+                    .then(response => {
+
+                    })
+                    .catch(error => {
+                    });
+            })
+            .catch(error => {
+            });
+    };
+}
