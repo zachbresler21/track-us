@@ -90,7 +90,7 @@ const ReportIncidentForm = props => {
         }, 3500)
     };
 
-    let incidents = ["Unsafe", "Inefficient", "Unhelpful Staff", "Reckless Staff", "Not Enforcing Rules", "Over Capacity", "No Sanisiter","Other"].map(incident =>
+    let incidents = ["Unsafe", "Inefficient", "Unhelpful Staff", "Reckless Staff", "Not Enforcing Rules", "Over Capacity", "No Sanitiser","Other"].map(incident =>
         <div key={incident} className={selectedTags.includes(incident) ? classes.SelectedIncidentType : classes.IncidentType} onClick={() => selectTagHandler(incident)}>
             {incident}
         </div>)

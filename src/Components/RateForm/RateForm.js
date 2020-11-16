@@ -30,12 +30,15 @@ const RateForm = (props) => {
             value: value
         })
         setRating(updatedRating)
+
     }
 
     const onClickHandler = (event) => {
         event.preventDefault()
         props.OnRateLocation(ratingRef.current, props.location_id, props.avg_rating)
-
+        setTimeout(() => {
+            props.OnSetFeedbackModal(false)
+        }, 3500)
     }
     return (
         <>

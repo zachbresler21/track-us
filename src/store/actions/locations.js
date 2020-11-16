@@ -92,15 +92,15 @@ export const searchLocationsByTerm = (term) => {
             //     console.log(snapshot.key);
             // });
             ref.orderByChild('name')
-             .startAt(term)
-             .endAt(term+"\uf8ff")
-             .once("value")
-             .then(snap => snap.val()).then(locations => {
-                console.log(locations)
-                ref.once("value").then((snap => {
-                    dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
-                }))
-            })
+                .startAt(term)
+                .endAt(term + "\uf8ff")
+                .once("value")
+                .then(snap => snap.val()).then(locations => {
+                    console.log(locations)
+                    ref.once("value").then((snap => {
+                        dispatch(searchLocationsByTermSuccess(locations, snap.numChildren()))
+                    }))
+                })
 
             // ref.startAt(termLowerCase).endAt(termLowerCase + "a").once('value')
             //     .then(snap => snap.val()).then(locations => {
@@ -162,6 +162,11 @@ const updateTotalRatings = (location_id, avg_rating, rating) => {
                     .catch(error => {
                     });
                 axios.put(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/avg_rating.json`, ((avg_rating * response.data + rating) / (response.data + 1)).toFixed(1))
+                    .then(response => {
+                        dispatch(searchLocationsById(location_id))
+                    })
+                    .catch(error => {
+                    });
             })
             .catch(error => {
             });
@@ -206,7 +211,7 @@ const updateTotalReports = (location_id) => {
             .then(response => {
                 axios.put(`https://track-us-2a92c.firebaseio.com/locations/${location_id}/total_reports.json`, response.data + 1)
                     .then(response => {
-
+                        dispatch(searchLocationsById(location_id))
                     })
                     .catch(error => {
                     });
